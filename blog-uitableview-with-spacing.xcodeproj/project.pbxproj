@@ -13,6 +13,7 @@
 		2655CFDD253CCA910057DDCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2655CFDC253CCA910057DDCC /* Assets.xcassets */; };
 		2655CFE0253CCA910057DDCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2655CFDE253CCA910057DDCC /* LaunchScreen.storyboard */; };
 		2655CFF0253CFD630057DDCC /* RestaurantReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655CFEF253CFD630057DDCC /* RestaurantReviewCell.swift */; };
+		2655CFF6253D00B00057DDCC /* RestaurantImageViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655CFF5253D00B00057DDCC /* RestaurantImageViewBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2655CFDF253CCA910057DDCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2655CFE1253CCA910057DDCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2655CFEF253CFD630057DDCC /* RestaurantReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewCell.swift; sourceTree = "<group>"; };
+		2655CFF5253D00B00057DDCC /* RestaurantImageViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantImageViewBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		2655CFD2253CCA8F0057DDCC /* blog-uitableview-with-spacing */ = {
 			isa = PBXGroup;
 			children = (
+				2655CFF3253D00610057DDCC /* Model */,
+				2655CFF4253D00690057DDCC /* View */,
+				2655CFF2253D005B0057DDCC /* Controller */,
 				2655CFD3253CCA8F0057DDCC /* AppDelegate.swift */,
 				2655CFD5253CCA8F0057DDCC /* SceneDelegate.swift */,
-				2655CFD7253CCA8F0057DDCC /* RestaurantReviewsViewController.swift */,
-				2655CFEF253CFD630057DDCC /* RestaurantReviewCell.swift */,
 				2655CFDC253CCA910057DDCC /* Assets.xcassets */,
 				2655CFDE253CCA910057DDCC /* LaunchScreen.storyboard */,
 				2655CFE1253CCA910057DDCC /* Info.plist */,
 			);
 			path = "blog-uitableview-with-spacing";
+			sourceTree = "<group>";
+		};
+		2655CFF2253D005B0057DDCC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2655CFD7253CCA8F0057DDCC /* RestaurantReviewsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2655CFF3253D00610057DDCC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2655CFF4253D00690057DDCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2655CFEF253CFD630057DDCC /* RestaurantReviewCell.swift */,
+				2655CFF5253D00B00057DDCC /* RestaurantImageViewBackground.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2655CFF6253D00B00057DDCC /* RestaurantImageViewBackground.swift in Sources */,
 				2655CFF0253CFD630057DDCC /* RestaurantReviewCell.swift in Sources */,
 				2655CFD8253CCA8F0057DDCC /* RestaurantReviewsViewController.swift in Sources */,
 				2655CFD4253CCA8F0057DDCC /* AppDelegate.swift in Sources */,

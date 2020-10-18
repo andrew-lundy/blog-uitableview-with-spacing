@@ -27,14 +27,7 @@ class RestaurantReviewsViewController: UIViewController {
     // MARK: - Methods
     func setupView() {
         
-        restaurantImageViewBackground = UIView(frame: CGRect(x: 0, y: 0, width: 175, height: 175))
-        restaurantImageViewBackground.translatesAutoresizingMaskIntoConstraints = false
-        restaurantImageViewBackground.backgroundColor = UIColor(red: 0.72, green: 0.25, blue: 0.05, alpha: 1)
-        restaurantImageViewBackground.makeCircle()
-        restaurantImageViewBackground.layer.shadowColor = UIColor(red: 0.39, green: 0.38, blue: 0.38, alpha: 1).cgColor
-        restaurantImageViewBackground.layer.shadowOffset = CGSize(width: 0, height: 5)
-        restaurantImageViewBackground.layer.shadowRadius = 5
-        restaurantImageViewBackground.layer.shadowOpacity = 1
+        restaurantImageViewBackground = RestaurantImageViewBackground()
         view.addSubview(restaurantImageViewBackground)
         
         restaurantImageView = UIImageView(image: UIImage(named: "cheese-burger"))
