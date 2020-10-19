@@ -50,6 +50,7 @@ class RestaurantReviewCell: UITableViewCell {
         applyAutoConstraints()
     }
     
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

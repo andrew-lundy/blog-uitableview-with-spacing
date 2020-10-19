@@ -27,6 +27,15 @@ class RestaurantReviewsViewController: UIViewController {
     // MARK: - Methods
     func setupView() {
         
+        data = [
+            Review(writer: "Calvin", receiver: "Rusty Nail Burgers", reviewText: "Okay burgers. Okay tenant. Would like to see them pay rent on time."),
+            Review(writer: "Felix", receiver: "Rusty Nail Burgers", reviewText: "Though my brother isn't a fan of Bob's cooking, I can't find a better burger on the wharf."),
+            Review(writer: "Teddy", receiver: "Rusty Nail Burgers", reviewText: "I'm here everyday. Couldn't ask for a better hangout spot."),
+            Review(writer: "Mickey", receiver: "Rusty Nail Burgers", reviewText: "Hey Bob! Thanks for feeding me during that heist. I will definitely be back to visit."),
+            Review(writer: "Marshmellow", receiver: "Rusty Nail Burgers", reviewText: "Hey Bob."),
+            Review(writer: "Rudy", receiver: "Rusty Nail Burgers", reviewText: "My dad drops me off here every once in a while. I like to sit in the back corner and enjoy my food."),
+        ]
+        
         restaurantImageViewBackground = RestaurantImageViewBackground()
         view.addSubview(restaurantImageViewBackground)
         
@@ -58,8 +67,13 @@ class RestaurantReviewsViewController: UIViewController {
         
         reviewTableView = UITableView()
         reviewTableView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(reviewTableView)
+        reviewTableView.register(RestaurantReviewCell.self, forCellReuseIdentifier: "reviewCell")
+        reviewTableView.backgroundColor = .clear
+        reviewTableView.delegate = self
+        reviewTableView.dataSource = self
+        reviewTableView.allowsSelection = false
         
+        view.addSubview(reviewTableView)
         
         applyAutoConstraints()
     }
@@ -80,10 +94,9 @@ class RestaurantReviewsViewController: UIViewController {
             starStackView.topAnchor.constraint(equalTo: restaurantNameLabel.bottomAnchor, constant: 10),
             starStackView.centerXAnchor.constraint(equalTo: restaurantImageViewBackground.centerXAnchor),
             reviewTableView.topAnchor.constraint(equalTo: starStackView.bottomAnchor, constant: 50),
-            reviewTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            reviewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            reviewTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            reviewTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             reviewTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
         ])
     }
     
@@ -104,5 +117,46 @@ class RestaurantReviewsViewController: UIViewController {
 extension UIView {
     func makeCircle() {
         self.layer.cornerRadius = self.frame.height / 2
+    }
+}
+
+
+extension RestaurantReviewsViewController: UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = view.backgroundColor
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
+}
+
+extension RestaurantReviewsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! RestaurantReviewCell
+        
+        if let writer = data[indexPath.section].writer {
+            cell.reviewerLabel.text = "\(writer) said:"
+        }
+        
+        if let reviewText = data[indexPath.section].reviewText {
+            cell.reviewLabel.text = "\(reviewText)"
+        }
+        
+        return cell
     }
 }
