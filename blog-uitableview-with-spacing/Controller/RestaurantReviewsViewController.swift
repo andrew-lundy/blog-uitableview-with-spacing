@@ -101,10 +101,6 @@ class RestaurantReviewsViewController: UIViewController {
 }
 
 // MARK: - Extensions
-
-
-
-
 extension UIView {
     func makeCircle() {
         self.layer.cornerRadius = self.frame.height / 2
